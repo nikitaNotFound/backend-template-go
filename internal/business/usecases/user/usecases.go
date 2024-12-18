@@ -3,13 +3,13 @@ package user
 import "app/internal/business"
 
 type UserUseCases struct {
-	userRep      *business.UserRepository
-	userCacheRep *business.UserCacheRepository
+	userRep      *business.UserRepo
+	userCacheRep *business.UserCacheRepo
 }
 
 func NewUserUseCases(
-	userRep *business.UserRepository,
-	userCacheRep *business.UserCacheRepository,
+	userRep *business.UserRepo,
+	userCacheRep *business.UserCacheRepo,
 ) *UserUseCases {
 	return &UserUseCases{
 		userRep:      userRep,

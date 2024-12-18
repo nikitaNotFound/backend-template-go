@@ -2,11 +2,15 @@ package business
 
 import "app/internal/domain"
 
-type UserRepository interface {
+type UserRepo interface {
 	GetUserByLogin(login string) (*domain.User, error)
 	CreateUser(user *domain.User) error
 }
 
-type UserCacheRepository interface {
+type UserCacheRepo interface {
 	GetUserByLogin(login string) (*domain.User, error)
+}
+
+type DataCacheRepo interface {
+	GetData() (*domain.Data, error)
 }
