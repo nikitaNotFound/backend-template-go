@@ -2,11 +2,11 @@ package bootstrap
 
 import (
 	"app/internal/business/usecases/data"
-	"app/internal/business/usecases/user"
+	"app/internal/business/usecases/auth"
 )
 
 type AppDeps struct {
-	AuthUseCases *user.AuthUseCases
+	AuthUseCases *auth.AuthUseCases
 	DataUseCases *data.DataUseCases
 
 	Cfg *AppConfig

@@ -1,7 +1,7 @@
 package domain
 
 type User struct {
-	ID        int    `json:"id"`
+	ID        int64  `json:"id"`
 	Login     string `json:"login"`
 	PwdHash   string `json:"pwdHash"`
 	CreatedAt int64  `json:"created_at"`
@@ -9,8 +9,8 @@ type User struct {
 
 type Data struct {
 	Location  string `json:"location"`
-	Temp      int    `json:"temp"`
-	Humidity  int    `json:"humidity"`
-	Pressure  int    `json:"pressure"`
+	Temp      int64  `json:"temp"`
+	Humidity  int64  `json:"humidity"`
+	Pressure  int64  `json:"pressure"`
 	CreatedAt int64  `json:"created_at"`
 }

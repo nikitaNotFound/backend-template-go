@@ -3,11 +3,11 @@ package data
 import "app/internal/business"
 
 type DataUseCases struct {
-	dataCacheRep *business.DataCacheRepo
+	*business.BusinessDeps
 }
 
-func NewDataUseCases(dataCacheRep *business.DataCacheRepo) *DataUseCases {
+func NewDataUseCases(deps *business.BusinessDeps) *DataUseCases {
 	return &DataUseCases{
-		dataCacheRep: dataCacheRep,
+		BusinessDeps: deps,
 	}
 }
