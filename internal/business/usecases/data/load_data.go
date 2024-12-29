@@ -1,9 +1,9 @@
 package data
 
-import "app/internal/domain"
+import "app/internal/business/models"
 
-func (u *DataUseCases) LoadData() (domain.Data, error) {
-	return domain.Data{
+func (u *DataUseCases) LoadData() (models.Data, error) {
+	return models.Data{
 		Location:  "Minsk",
 		Temp:      25,
 		Humidity:  70,

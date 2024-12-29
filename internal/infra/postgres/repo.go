@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"app/internal/domain"
+	"app/internal/business/models"
 	sqlcgen "app/internal/infra/postgres/queries"
 
 	"github.com/jackc/pgx/v5"
@@ -30,13 +30,13 @@ func InitPostgresRepo(connStr string, ctx context.Context) (*PostgresRepo, error
 	}, nil
 }
 
-func (r *PostgresRepo) GetUserByLogin(login string) (*domain.User, error) {
+func (r *PostgresRepo) GetUserByLogin(login string) (*models.User, error) {
 	user, err := r.queries.GetUserByLogin(r.ctx, login)
 	if err != nil {
 		return nil, err
 	}
 
-	return &domain.User{
+	return &models.User{
 		ID:        user.ID,
 		Login:     user.Login,
 		PwdHash:   user.PwdHash,
@@ -44,7 +44,7 @@ func (r *PostgresRepo) GetUserByLogin(login string) (*domain.User, error) {
 	}, nil
 }
 
-func (r *PostgresRepo) CreateUser(user *domain.User) error {
+func (r *PostgresRepo) CreateUser(user *models.User) error {
 	_, err := r.queries.CreateUser(r.ctx, sqlcgen.CreateUserParams{
 		Login:     user.Login,
 		PwdHash:   user.PwdHash,

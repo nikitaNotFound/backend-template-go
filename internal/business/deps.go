@@ -1,6 +1,6 @@
 package business
 
-import "app/internal/domain"
+import "app/internal/business/models"
 
 type BusinessDeps struct {
 	UserRepo      UserRepo
@@ -9,14 +9,14 @@ type BusinessDeps struct {
 }
 
 type UserRepo interface {
-	GetUserByLogin(login string) (*domain.User, error)
-	CreateUser(user *domain.User) error
+	GetUserByLogin(login string) (*models.User, error)
+	CreateUser(user *models.User) error
 }
 
 type UserCacheRepo interface {
-	GetUserByLogin(login string) (*domain.User, error)
+	GetUserByLogin(login string) (*models.User, error)
 }
 
 type DataCacheRepo interface {
-	GetData() (*domain.Data, error)
+	GetData() (*models.Data, error)
 }
