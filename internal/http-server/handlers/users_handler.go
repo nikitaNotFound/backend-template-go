@@ -1,33 +1,31 @@
 package handlers
 
 import (
-	"app/internal/business/usecases/user"
+	"app/internal/bootstrap"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
 )
 
-type UsersHandler struct {
-	userUseCases *user.UserUseCases
+type AuthHandler struct {
+	*bootstrap.AppDeps
 }
 
-func NewUsersHandler(userUseCases *user.UserUseCases) *UsersHandler {
-	return &UsersHandler{
-		userUseCases: userUseCases,
+func NewAuthHandler(deps *bootstrap.AppDeps) *AuthHandler {
+	return &AuthHandler{
+		AppDeps: deps,
 	}
 }
 
-func (h *UsersHandler) RegisterEndpoints(r chi.Router) {
-	r.Route("/users", func(r chi.Router) {
-		r.Post("/login", h.handleLogin)
-		r.Post("/register", h.handleRegister)
-	})
+func (h *AuthHandler) RegisterEndpoints(r chi.Router) {
+	r.Post("/login", h.handleLogin)
+	r.Post("/register", h.handleRegister)
 }
 
-func (h *UsersHandler) handleRegister(w http.ResponseWriter, r *http.Request) {
+func (h *AuthHandler) handleRegister(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func (h *UsersHandler) handleLogin(w http.ResponseWriter, r *http.Request) {
+func (h *AuthHandler) handleLogin(w http.ResponseWriter, r *http.Request) {
 
 }

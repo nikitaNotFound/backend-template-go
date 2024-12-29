@@ -1,19 +1,19 @@
 package handlers
 
 import (
-	"app/internal/business/usecases/data"
+	"app/internal/bootstrap"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
 )
 
 type DataHandler struct {
-	dataUseCases *data.DataUseCases
+	*bootstrap.AppDeps
 }
 
-func NewDataHandler(dataUseCases *data.DataUseCases) *DataHandler {
+func NewDataHandler(deps *bootstrap.AppDeps) *DataHandler {
 	return &DataHandler{
-		dataUseCases: dataUseCases,
+		AppDeps: deps,
 	}
 }
 

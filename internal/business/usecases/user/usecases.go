@@ -2,7 +2,7 @@ package user
 
 import "app/internal/business"
 
-type UserUseCases struct {
+type AuthUseCases struct {
 	userRep      *business.UserRepo
 	userCacheRep *business.UserCacheRepo
 }
@@ -10,8 +10,8 @@ type UserUseCases struct {
 func NewUserUseCases(
 	userRep *business.UserRepo,
 	userCacheRep *business.UserCacheRepo,
-) *UserUseCases {
-	return &UserUseCases{
+) *AuthUseCases {
+	return &AuthUseCases{
 		userRep:      userRep,
 		userCacheRep: userCacheRep,
 	}

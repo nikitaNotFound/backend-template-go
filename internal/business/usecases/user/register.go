@@ -1,5 +1,5 @@
 package user
 
-func (u *UserUseCases) Register(login string, pwd string) error {
+func (u *AuthUseCases) Register(login string, pwd string) error {
 	return nil
 }
