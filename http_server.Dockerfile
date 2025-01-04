@@ -17,7 +17,7 @@ COPY . .
 COPY configs ./configs
 
 # Build the Go app
-RUN go build -o main ./cmd/http_server/main.go
+RUN go build -o main ./cmd/http-server/main.go
 
 # Expose port (change this to the port your app listens on)
 EXPOSE 8080

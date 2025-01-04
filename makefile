@@ -10,3 +10,9 @@ migrate-local:
 	go run cmd/database-migration/main.go
 swag:
 	swag init -g ./cmd/http-server/main.go -o ./docs/
+docker-build:
+	docker build -t api_server:latest -f http-server.Dockerfile .
+compose-run-dev:
+	docker-compose -f deployments/dev.docker-compose.yml up -d
+compose-run-infra:
+	docker-compose -f deployments/infra.docker-compose.yml up -d
